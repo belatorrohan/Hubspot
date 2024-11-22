@@ -1,10 +1,11 @@
 import requests
+import os
 from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
 # HubSpot API Token
-HUBSPOT_API_TOKEN = ' '
+HUBSPOT_API_TOKEN = 'pat-na1-d769cb77-9c88-4067-b259-c6b8251ad43b'
 
 # Function to fetch referees
 def get_referrals(referral_code):
@@ -43,5 +44,11 @@ def get_referrals_endpoint():
     referrals = get_referrals(referral_code)
     return jsonify(referrals)
 
+# Add a health check endpoint
+@app.route('/')
+def health_check():
+    return jsonify({"status": "healthy"})
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
