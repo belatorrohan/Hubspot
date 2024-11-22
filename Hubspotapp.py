@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 app = Flask(__name__)
 
 # HubSpot API Token
-HUBSPOT_API_TOKEN = 'pat-na1-d769cb77-9c88-4067-b259-c6b8251ad43b'
+HUBSPOT_API_TOKEN = ' '
 
 # Function to fetch referees
 def get_referrals(referral_code):
