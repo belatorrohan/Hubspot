@@ -1,1 +1,1 @@
-web: python Hubspotapp.py
+web: gunicorn Hubspotapp:app
